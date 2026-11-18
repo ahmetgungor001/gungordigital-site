@@ -19,7 +19,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-  </head>
+    <link rel="stylesheet" href="/website-analytics.css">
+  <script is:inline type="module" src="/website-analytics.js"></script>
+</head>
   <body>
     <a class="skip" href="#main">İçeriğe geç</a>
     <header class="masthead frame">
