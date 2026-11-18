@@ -1,0 +1,43 @@
+---
+import '../studio.css';
+
+const { title, description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#f7f3e8" />
+    <link rel="icon" href="/studio-icon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="tr_TR" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+  </head>
+  <body>
+    <a class="skip" href="#main">İçeriğe geç</a>
+    <header class="masthead frame">
+      <a class="brand" href="/" aria-label="Güngör Digital ana sayfa"><span aria-hidden="true">G<span>.</span></span> Güngör Digital</a>
+      <nav aria-label="Ana menü">
+        <a href="/#projeler">Projeler</a>
+        <a href="/#hakkinda">Stüdyo</a>
+        <a href="/#iletisim">İletişim ↗</a>
+      </nav>
+    </header>
+    <slot />
+    <footer class="footer frame">
+      <small>© {new Date().getUTCFullYear()} Güngör Digital</small>
+      <nav aria-label="Yasal bağlantılar">
+        <a href="/gizlilik/">Gizlilik</a>
+        <a href="/kosullar/">Koşullar</a>
+        <a href="/veri-silme/">Veri silme</a>
+      </nav>
+    </footer>
+  </body>
+</html>

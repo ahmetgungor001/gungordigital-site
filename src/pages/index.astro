@@ -1,0 +1,82 @@
+---
+import Studio from '../layouts/Studio.astro';
+
+const projects = [
+  {
+    name: 'Kelime Oyunu 3D',
+    category: 'Mobil oyun',
+    description: 'Harfleri üç boyutlu bir dünyada birleştirip gizli kelimeleri bul.',
+    href: 'https://kelimeoyunu3d.gungordigital.com/',
+    link: 'Kelime Oyunu 3D’yi keşfet',
+    style: 'cube',
+  },
+  {
+    name: 'Boncuk Kelime Bulmaca',
+    category: 'Mobil oyun',
+    description: 'Harf ızgarasında Türkçe, İngilizce ve Almanca gizli kelimeleri keşfet.',
+    href: 'https://boncuk.gungordigital.com/',
+    link: 'Boncuk’u keşfet',
+    style: 'beads',
+  },
+  {
+    name: 'İşletmeler için yazılım',
+    category: 'Tarsus ve Mersin',
+    description: 'İşletmelere özel yazılım, ERP danışmanlığı, mobil uygulama ve web tasarım.',
+    href: 'https://tarsus.gungordigital.com/',
+    link: 'Hizmetleri incele',
+    style: 'systems',
+  },
+];
+
+const board = ['G', 'Ü', 'N', 'G', 'Ö', 'R', 'O', 'Y', 'U', 'N', 'L', 'A', 'Ü', 'R', 'E', 'T', 'İ', 'M'];
+---
+<Studio
+  title="Güngör Digital | Oyun ve Yazılım Stüdyosu"
+  description="Tarsus merkezli Güngör Digital’in mobil oyunlarını ve yazılım projelerini keşfedin. Kelime Oyunu 3D, Boncuk ve işletmelere özel yazılım."
+>
+  <main id="main">
+    <section class="hero frame">
+      <div class="hero-copy">
+        <p class="label">Tarsus · Oyun ve yazılım stüdyosu</p>
+        <h1>Oyunlar ve <em>dijital ürünler</em> geliştiriyoruz.</h1>
+        <p class="intro">Kelime oyunları, mobil uygulamalar ve işletmelerin işini kolaylaştıran yazılımlar.</p>
+        <a class="action" href="#projeler">Projeleri keşfet <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="board">
+          {board.map((letter) => <span>{letter}</span>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="projects" id="projeler">
+      <div class="frame">
+        <h2>Projeler</h2>
+        <div class="projects-grid">
+          {projects.map((project) => (
+            <article class="project">
+              <div class:list={['project-art', project.style]} aria-hidden="true"><span></span><span></span><span></span></div>
+              <div class="project-copy">
+                <p class="label">{project.category}</p>
+                <h3>{project.name}</h3>
+                <p>{project.description}</p>
+                <a href={project.href}>{project.link} <span aria-hidden="true">↗</span></a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="studio frame" id="hakkinda">
+      <h2>Stüdyo</h2>
+      <p>Güngör Digital, Tarsus’ta geliştirdiğimiz oyunların ve yazılım ürünlerinin yayın adresi. Oyunlarımızı kendi sayfalarından inceleyebilir, Tarsus ve Mersin’de işletmelere sunduğumuz hizmetlere projeler bölümünden ulaşabilirsiniz.</p>
+    </section>
+
+    <section class="contact frame" id="iletisim">
+      <h2>İletişim</h2>
+      <p>İş birliği, destek veya geri bildirim için yazın.</p>
+      <a href="mailto:destek@gungordigital.com">destek@gungordigital.com <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+</Studio>
